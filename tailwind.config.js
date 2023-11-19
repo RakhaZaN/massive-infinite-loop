@@ -10,8 +10,9 @@ export default {
     },
     extend: {
       colors: {
-        customBlueNilai: '#95CEF0',
-        customBluePencapaian: '#E8F7FB',
+        customBlue1: '#95CEF0',
+        customBlue2: '#E8F7FB',
+        customBlue3: '#2580B5',
       },
       width: {
         'customWidthNilai': '375px',

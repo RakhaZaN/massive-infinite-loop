@@ -6,7 +6,7 @@ function Navbar() {
     <StyledNavbar>
       <nav className="navbar">
         <div>
-          <h1>HOWHEAL</h1>
+        <img className="ml-12 cursor-pointer" src={`/img/LOGO.png`} alt="Card image" />
         </div>
         <div>
           <ul>

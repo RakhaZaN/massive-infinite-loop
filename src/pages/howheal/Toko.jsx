@@ -1,6 +1,10 @@
+import Cabang from "../../components/Toko/Cabang"
+
 function Toko() {
     return (
-      <div>Toko</div>
+      <div>
+        <Cabang/>
+      </div>
     )
   }
   

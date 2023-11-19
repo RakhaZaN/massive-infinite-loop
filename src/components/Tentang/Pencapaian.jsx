@@ -1,7 +1,7 @@
 function Pencapaian() {
     return (
       <div>
-        <section className="h-c187 flex items-center bg-customBluePencapaian p-8">
+        <section className="h-c187 flex items-center bg-customBlue2 p-8">
           <div className="flex justify-between w-full">
             <div className="ml-24 text-center">
               <h1 className="text-5xl font-bold">2019</h1>
