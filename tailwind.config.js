@@ -11,12 +11,15 @@ export default {
     extend: {
       colors: {
         customBlueNilai: '#95CEF0',
+        customBluePencapaian: '#E8F7FB',
       },
       width: {
         'customWidthNilai': '375px',
       },
       height: {
         'customHeightNilai': '222px',
+        'c187': '187px',
+        'c58': '58px',
       },
 
     },

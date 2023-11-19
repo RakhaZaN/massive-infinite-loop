@@ -1,4 +1,5 @@
 import Nilai from "../../components/Tentang/Nilai";
+import Pencapaian from "../../components/Tentang/Pencapaian";
 import Perjalanan from "../../components/Tentang/Perjalanan";
 
 function Tentang() {
@@ -6,6 +7,7 @@ function Tentang() {
     <div>
         <Perjalanan/>
         <Nilai/>
+        <Pencapaian/>
     </div>
   )
 }
