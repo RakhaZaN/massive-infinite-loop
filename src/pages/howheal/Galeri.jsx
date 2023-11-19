@@ -1,0 +1,8 @@
+function Galeri() {
+    return (
+      <div>Galeri</div>
+    )
+  }
+  
+  export default Galeri
+  
