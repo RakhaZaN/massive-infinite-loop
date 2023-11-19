@@ -13,6 +13,8 @@ export default {
         customBlue1: '#95CEF0',
         customBlue2: '#E8F7FB',
         customBlue3: '#2580B5',
+        customBlue4: '#1CAAD9',
+        customBlue5: '#2277A8',
       },
       width: {
         'customWidthNilai': '375px',
