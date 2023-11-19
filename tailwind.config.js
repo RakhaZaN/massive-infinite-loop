@@ -8,8 +8,22 @@ export default {
       lg: '976px',
       xl: '1440px',
     },
-    extend: {},
+    extend: {
+      colors: {
+        customBlueNilai: '#95CEF0',
+      },
+      width: {
+        'customWidthNilai': '375px',
+      },
+      height: {
+        'customHeightNilai': '222px',
+      },
+
+    },
   },
   plugins: [],
 }
+
+
+
 

@@ -1,8 +1,21 @@
 function Beranda() {
     return (
       <div>
-          <h1>h</h1>
-          <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit maiores asperiores quae nesciunt deleniti. Magnam culpa laudantium, sequi vel libero omnis, cum tenetur repellat quam perspiciatis exercitationem officiis minus porro debitis possimus! At ad quas dolore recusandae sed hic corrupti nostrum culpa necessitatibus ex suscipit accusamus, aliquid, eaque consequatur? Blanditiis quidem voluptatum officiis sed nemo cumque ipsum labore repellat? Quaerat, similique at eius error doloremque soluta obcaecati aliquam magni nisi maiores optio reiciendis tenetur esse rerum ratione quasi voluptatibus quod et eos enim. Tempore, necessitatibus iure minus maiores odio corrupti, optio laborum nemo vitae id, nobis animi veniam assumenda quisquam.</h1>
+          <section className="m-16 text-center">
+            <h1 className="text-4xl mt-4 font-bold">
+              Pilihan Terbaik untuk Perawatan Barang Kesayangan Anda
+            </h1>
+            <p className="text-lg mt-4">
+            Kami menangani perawatan sepatu, tas, topi, dan dompet. Kami melakukan perawatan secara profesional, dengan teknik khusus,
+            </p>
+            <p>
+            serta menggunakan alat dan bahan premium untuk melakukan perawatan. Dapatkan informasi terbaru mengenai Howheal Shoes and
+            </p>
+            <p>
+            Care dengan mengakses link website resmi kami.
+            </p>
+          </section>
+          
       </div>
     )
   }

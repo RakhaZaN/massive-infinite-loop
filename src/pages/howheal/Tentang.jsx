@@ -1,9 +1,11 @@
-import TentangPage from "../../components/Tentang/TentangPage";
+import Nilai from "../../components/Tentang/Nilai";
+import Perjalanan from "../../components/Tentang/Perjalanan";
 
 function Tentang() {
   return (
     <div>
-        <TentangPage/>
+        <Perjalanan/>
+        <Nilai/>
     </div>
   )
 }
