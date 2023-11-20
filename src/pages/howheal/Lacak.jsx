@@ -1,6 +1,10 @@
+import HeroLacak from "../../components/Lacak/HeroLacak"
+
 function Lacak() {
     return (
-      <div>Lacak</div>
+      <div>
+        <HeroLacak/>
+      </div>
     )
   }
   

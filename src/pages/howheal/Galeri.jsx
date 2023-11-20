@@ -1,6 +1,10 @@
+import HeroGaleri from "../../components/Galeri/HeroGaleri"
+
 function Galeri() {
     return (
-      <div>Galeri</div>
+      <div>
+        <HeroGaleri/>
+      </div>
     )
   }
   
