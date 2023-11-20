@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import StyledNavbar from "./Navbar.styled";
 
 function Navbar() {
@@ -6,24 +6,34 @@ function Navbar() {
     <StyledNavbar>
       <nav className="navbar">
         <div>
-        <img className="ml-12 cursor-pointer" src={`/img/LOGO.png`} alt="Card image" />
+          <img className="ml-12 cursor-pointer" src={`/img/LOGO.png`} alt="Card image" />
         </div>
         <div>
-          <ul>
+          <ul className="font-semibold">
             <li>
-                <Link to="/">Beranda</Link>
+              <NavLink exact to="/" activeClassName="active">
+                Beranda
+              </NavLink>
             </li>
             <li>
-                <Link to="/howheal/tentang">Tentang</Link>
+              <NavLink to="/howheal/tentang" activeClassName="active">
+                Tentang
+              </NavLink>
             </li>
             <li>
-                <Link to="/howheal/toko">Toko</Link>
+              <NavLink to="/howheal/toko" activeClassName="active">
+                Toko
+              </NavLink>
             </li>
             <li>
-                <Link to="/howheal/galeri">Galeri</Link>
+              <NavLink to="/howheal/galeri" activeClassName="active">
+                Galeri
+              </NavLink>
             </li>
             <li>
-                <Link to="/howheal/lacak">Lacak</Link>
+              <NavLink to="/howheal/lacak" activeClassName="active">
+                Lacak
+              </NavLink>
             </li>
           </ul>
         </div>

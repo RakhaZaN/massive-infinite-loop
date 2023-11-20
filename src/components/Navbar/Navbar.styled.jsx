@@ -46,6 +46,13 @@ const StyledNavbar = styled.div`
       margin: 0 1rem;
     }
   }
+
+  .navbar ul li a.active {
+  /* Tambahkan gaya yang ingin Anda terapkan pada tautan yang aktif di sini */
+  font-weight: bold;
+  color: #70B8E3; /* Misalnya, ubah warna teks */
+  /* Atau efek visual lainnya */
+}
   
   /* Large Screen */
   @media (min-width: 992px) {
