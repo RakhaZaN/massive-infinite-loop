@@ -1,7 +1,7 @@
 function Nilai() {
   return (
     <div>
-        <section className="h-96 flex items-center justify-between bg-customBlue1 p-8">
+        <section className="h-c399 flex items-center justify-between bg-customBlue4 p-8">
             <h1 className="ml-10 mr-1 text-4xl font-bold">Nilai yang kami pegang</h1>
             <div className="flex flex-1 justify-center">
                 <div className="w-customWidthNilai h-customHeightNilai bg-white mr-8 rounded-lg p-6">

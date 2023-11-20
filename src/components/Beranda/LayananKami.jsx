@@ -1,7 +1,9 @@
 function LayananKami() {
   return (
     <div>
-        <h1 className="text-center text-2xl font-bold mb-6">Layanan Kami</h1>
+      <section className="h-c820">
+        <h1 className="text-customBlue3 text-center text-4xl font-bold">Layanan Kami</h1>
+      </section>
     </div>
   )
 }
