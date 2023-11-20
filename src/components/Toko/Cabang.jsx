@@ -13,7 +13,7 @@ function Cabang() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <a href="#" className="bg-customBlue3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                <a href="#" className="bg-customBlue3 hover:bg-customBlue4 text-white font-bold py-2 px-4 rounded-full">
                 Read More
                 </a>
             </div>
@@ -29,7 +29,7 @@ function Cabang() {
                 </p>
             </div>
             <div className="px-6 py-4  flex justify-end">
-                <a href="#" className="bg-customBlue3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                <a href="#" className="bg-customBlue3 hover:bg-customBlue4 text-white font-bold py-2 px-4 rounded-full">
                 Read More
                 </a>
             </div>
@@ -45,7 +45,7 @@ function Cabang() {
                 </p>
             </div>
             <div className="px-6 py-4  flex justify-end">
-                <a href="#" className="bg-customBlue3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                <a href="#" className="bg-customBlue3 hover:bg-customBlue4 text-white font-bold py-2 px-4 rounded-full">
                 Read More
                 </a>
             </div>
