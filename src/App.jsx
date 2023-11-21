@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<h1 className="text-5xl">Hello World!</h1>} />
+        <Route path="/" element={<h1 className="text-5xl">World!</h1>} />
       </Routes>
     </>
   );
