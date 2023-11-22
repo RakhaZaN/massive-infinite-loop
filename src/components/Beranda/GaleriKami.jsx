@@ -2,14 +2,14 @@ function GaleriKami() {
 
     // Dummy image URLs
     const images = [
+      '/img/loading2.jpeg',
+      '/img/loading2.jpeg',
+      '/img/GaleriKami3.jpeg',
+      '/img/GaleriKami4.jpeg',
+      '/img/GaleriKami5.jpeg',
+      '/img/GaleriKami6.jpeg',
       '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
-      '/img/GaleriKami7.jpg',
+      '/img/loading2.jpeg',
     ];
   return (
     <div>
