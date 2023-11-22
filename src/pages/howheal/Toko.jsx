@@ -1,11 +1,11 @@
-import Cabang from "../../components/Toko/Cabang"
+import CabangMitraToko from "../../components/Toko/CabangMitraToko"
 import HeroToko from "../../components/Toko/HeroToko"
 
 function Toko() {
     return (
       <div>
         <HeroToko/>
-        <Cabang/>
+        <CabangMitraToko/>
       </div>
     )
   }

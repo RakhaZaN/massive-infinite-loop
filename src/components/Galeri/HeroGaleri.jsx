@@ -20,4 +20,3 @@ function HeroGaleri() {
   }
   
   export default HeroGaleri;
-  
