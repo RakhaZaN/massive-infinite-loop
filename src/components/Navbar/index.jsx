@@ -16,22 +16,22 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/howheal/tentang" activeClassName="active">
+              <NavLink to="/tentang" activeClassName="active">
                 Tentang
               </NavLink>
             </li>
             <li>
-              <NavLink to="/howheal/toko" activeClassName="active">
+              <NavLink to="/toko" activeClassName="active">
                 Toko
               </NavLink>
             </li>
             <li>
-              <NavLink to="/howheal/galeri" activeClassName="active">
+              <NavLink to="/galeri" activeClassName="active">
                 Galeri
               </NavLink>
             </li>
             <li>
-              <NavLink to="/howheal/lacak" activeClassName="active">
+              <NavLink to="/lacak" activeClassName="active">
                 Lacak
               </NavLink>
             </li>
