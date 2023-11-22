@@ -29,9 +29,10 @@ const AdminLogin = () => {
                 Email
               </label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 id="email"
+                autoComplete="off"
                 className="block w-full py-2 px-3 rounded-md border border-gray-300 focus:border-customBlue3 focus:ring-customBlue1 focus:ring-2 focus:ring-offset-1 focus:outline-none"
               />
             </div>

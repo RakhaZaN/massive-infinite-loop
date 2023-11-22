@@ -7,6 +7,8 @@ import Lacak from "./pages/howheal/Lacak";
 import Layout from "./Layout";
 import Admin from "./pages/admin";
 import AdminLogin from "./pages/admin/login";
+import AdminLayout from "./Layout/AdminLayout";
+import Pelanggan from "./pages/admin/pelanggan";
 
 function App() {
   return (
@@ -20,10 +22,11 @@ function App() {
           <Route path="lacak" element={<Lacak />} />
         </Route>
 
-        <Route path="admin">
+        <Route path="admin" element={<AdminLayout />}>
           <Route index element={<Admin />} />
-          <Route path="login" element={<AdminLogin />} />
+          <Route path="data-pelanggan" element={<Pelanggan />} />
         </Route>
+        <Route path="admin/login" element={<AdminLogin />} />
       </Routes>
     </>
   );
