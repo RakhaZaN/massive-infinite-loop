@@ -1,7 +1,49 @@
+import React from "react";
+
 const Admin = () => {
+  const layanan = [
+    {
+      id: 1,
+      layanan: "Fast Cleaning",
+      harga: 20000,
+    },
+    {
+      id: 2,
+      layanan: "Deep Cleaning",
+      harga: 50000,
+    },
+    {
+      id: 3,
+      layanan: "Premium",
+      harga: 75000,
+    },
+    {
+      id: 4,
+      layanan: "Unyellowing",
+      harga: 50000,
+    },
+    {
+      id: 5,
+      layanan: "Repaint",
+      harga: 35000,
+    },
+    {
+      id: 6,
+      layanan: "Repair",
+      harga: 100000,
+    },
+  ];
+
+  const [selectLayanan, setSelectLayanan] = React.useState("");
+
+  const handleChangeLayanan = (e) => {
+    setSelectLayanan(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-3xl font-semibold mb-8">Input Data Pelanggan</h1>
@@ -61,7 +103,7 @@ const Admin = () => {
                   htmlFor="merekSepatu"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  Merek Sepatu
+                  Tipe Sepatu
                 </label>
                 <input
                   type="text"
@@ -77,12 +119,20 @@ const Admin = () => {
                 >
                   Jenis Layanan
                 </label>
-                <input
-                  type="text"
-                  name="JenisLayanan"
+                <select
+                  name="jenisLayanan"
                   id="JenisLayanan"
+                  onChange={handleChangeLayanan}
+                  defaultValue={selectLayanan}
                   className="block w-full py-2 px-3 rounded-md border border-gray-300 focus:border-customBlue3 focus:ring-customBlue1 focus:ring-2 focus:ring-offset-1 focus:outline-none"
-                />
+                >
+                  <option value="">----- Pilih Jenis Layanan -----</option>
+                  {layanan.map((layanan, idx) => (
+                    <option key={idx} value={layanan.id}>
+                      {layanan.layanan}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="group mb-4">
                 <label
@@ -95,7 +145,8 @@ const Admin = () => {
                   type="tel"
                   name="harga"
                   id="harga"
-                  className="block w-full py-2 px-3 rounded-md border border-gray-300 focus:border-customBlue3 focus:ring-customBlue1 focus:ring-2 focus:ring-offset-1 focus:outline-none"
+                  className="block w-full py-2 px-3 rounded-md border border-gray-300 focus:border-customBlue3 focus:ring-customBlue1 focus:ring-2 focus:ring-offset-1 focus:outline-none read-only:bg-broken-white"
+                  readOnly
                 />
               </div>
               <div className="group mb-4">

@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 const Pelanggan = () => {
   return (
     <div className="max-w-5xl mx-auto">
-      <h1 className="text-3xl font-semibold mb-8">Data Pelanggan</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-semibold mb-8">Data Pelanggan</h1>
+        <span>
+          <button className="py-2 px-6 bg-slate-400 text-slate-700 rounded-md text-sm font-medium">
+            Excel
+          </button>
+        </span>
+      </div>
 
       <div className="bg-white rounded-xl p-6 mb-6">
         <div className="w-full overflow-x-auto">

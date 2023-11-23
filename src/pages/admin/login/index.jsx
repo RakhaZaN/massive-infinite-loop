@@ -1,22 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
   const [showPass, setShowPass] = React.useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
-
-  const handlePasswordToggle = () => {
-    setShowPass(!showPass);
+    return navigate("/admin", { replace: true });
   };
 
   return (
     <div className="min-h-screen w-screen bg-broken-white flex">
-      <div className="bg-customBlue3 flex items-center justify-center px-20 flex-grow max-sm:hidden">
+      <div className="bg-customBlue3 flex items-center justify-center flex-grow max-sm:hidden">
         <img src="/img/LOGO.png" alt="logo" className="w-full max-w-sm" />
       </div>
-      <div className="flex items-center justify-center flex-auto px-8">
+      <div className="flex items-center justify-center flex-auto px-8 py-10">
         <div className="bg-white px-8 py-10 rounded-2xl flex-auto max-w-md">
           <h1 className="text-3xl font-semibold mb-10">Log in</h1>
 
@@ -52,7 +51,7 @@ const AdminLogin = () => {
                 />
                 <div
                   className="cursor-pointer absolute right-2 top-2"
-                  onClick={handlePasswordToggle}
+                  onClick={() => setShowPass(!showPass)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
