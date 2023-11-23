@@ -53,6 +53,10 @@ export default {
       },
       spacing: {
         '41': '172px',
+        '22': '88px',
+      },
+      fontFamily: {
+        'nunito': ['Nunito', 'sans-serif'],
       },
 
     },

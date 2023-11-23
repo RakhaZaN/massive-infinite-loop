@@ -4,15 +4,15 @@ function HeroLacak() {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '647px',
-      backgroundColor: 'rgba(255, 255, 255, 0.4)', // Putih dengan 60% transparansi
+      backgroundColor: '#95CEF0',
     };
   
     return (
       <div>
-      <section style={sectionStyle} className="flex justify-center items-center">
+      <section style={sectionStyle} className="flex justify-center items-center bg-blend-soft-light">
         <div className="text-center">
-          <h1 className="text-5xl font-bold mb-2">Lacak</h1>
-          <h1 className="text-3xl mt-4">BERANDA / HALAMAN / <span className="text-customBlue5">LACAK</span></h1>
+          <h1 className="text-5xl font-bold mb-2 font-nunito">Lacak</h1>
+          <h1 className="text-3xl mt-4 font-nunito">BERANDA / HALAMAN / <span className="text-customBlue5">LACAK</span></h1>
 
           <div className="flex mt-10 justify-center items-center">
             <input type="text" className="border-gray-300 border rounded-l-lg px-60 py-7 focus:outline-none focus:ring focus:border-blue-300 flex-1 text-xl" placeholder="Masukkan ID Pelanggan" aria-label="Masukkan ID Pelanggan" aria-describedby="button-addon2" />
