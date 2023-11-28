@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function CabangMitraToko() {
     return (
     <>
@@ -14,9 +16,9 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <a href="#" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+              <Link to="/sac-malang" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
-                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -30,9 +32,9 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <a href="#" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+                <Link to="/sac-banyuwangi" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
-                </a>
+                </Link>
             </div>
           </div>
         </div>
@@ -42,14 +44,14 @@ function CabangMitraToko() {
             <div className="px-6">
                 <h1 className="font-bold text-xl mb-2 text-white">SAC Jakarta Utara</h1>
                 <p className="text-white text-base">
-                <br/>
                   Jl papanggo no 2c (sunter) 
+                  <br/><br/>
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <a href="#" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+                <Link to="/sac-jakut" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
-                </a>
+                </Link>
             </div>
           </div>
         </div>
@@ -63,9 +65,9 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <a href="#" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+                <Link to="/sac-batam" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
-                </a>
+                </Link>
             </div>
           </div>
         </div>
