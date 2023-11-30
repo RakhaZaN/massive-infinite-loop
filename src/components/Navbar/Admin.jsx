@@ -1,6 +1,26 @@
-const NavbarAdmin = () => {
+const NavbarAdmin = ({ toggleSidebar }) => {
   return (
     <div className="bg-white px-8 py-4 flex justify-end gap-4">
+      <button
+        type="button"
+        className="p-2 px-3 rounded-full hover:bg-customBlue4 hover:text-white me-auto"
+        onClick={toggleSidebar}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-4 h-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+          />
+        </svg>
+      </button>
       <button type="button" className="p-2 px-3 rounded-full hover:bg-gray-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
