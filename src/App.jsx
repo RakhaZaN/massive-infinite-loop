@@ -27,6 +27,13 @@ function App() {
           <Route path="galeri" element={<Galeri />} />
           <Route path="lacak" element={<Lacak />} />
 
+          {/* <Route path="toko" element={<Toko />}>
+            <Route path="sac-malang" element={<Malang />} />
+            <Route path="sac-banyuwangi" element={<Banyuwangi />} />
+            <Route path="sac-jakut" element={<Jakut />} />
+            <Route path="sac-batam" element={<Batam />} />
+          </Route> */}
+
           {/* layanan sac */}
           <Route path="sac-malang" element={< Malang/>} />
           <Route path="sac-banyuwangi" element={< Banyuwangi/>} />
