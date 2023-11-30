@@ -9,12 +9,13 @@ import Admin from "./pages/admin";
 import AdminLogin from "./pages/admin/login";
 import AdminLayout from "./Layout/AdminLayout";
 import Pelanggan from "./pages/admin/pelanggan";
+import InputPerawatan from "./pages/admin/perawatan";
+import EditPerawatan from "./pages/admin/perawatan/Edit";
 import Malang from "./pages/LayananSac/Malang";
 import Banyuwangi from "./pages/LayananSac/Banyuwangi";
 import Jakut from "./pages/LayananSac/Jakut";
 import Batam from "./pages/LayananSac/Batam";
 import HasilLacak from "./pages/HasilLacak/HasilLacak";
-
 
 function App() {
   return (
@@ -47,7 +48,11 @@ function App() {
 
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<Admin />} />
-          <Route path="data-pelanggan" element={<Pelanggan />} />
+          <Route path="input-data" element={<InputPerawatan />} />
+          <Route path="data-pelanggan">
+            <Route index element={<Pelanggan />} />
+            <Route path=":id" element={<EditPerawatan />} />
+          </Route>
         </Route>
         <Route path="admin/login" element={<AdminLogin />} />
       </Routes>
