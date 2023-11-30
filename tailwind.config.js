@@ -17,7 +17,9 @@ export default {
         customBlue5: '#2277A8',
         customBlue6: '#70B8E3',
         customBlue7 : '#00A7E1',
+        customBlue8 : '#89DCF3',
         'broken-white': '#D5DFE4',
+        putihKarton : '#F7F7F7',
       },
       width: {
         'customWidthNilai': '375px',
@@ -27,7 +29,6 @@ export default {
         'c387':'387px',
         'c347':'347px',
         'c420':'420px',
-        
       },
       height: {
         'customHeightNilai': '222px',
@@ -50,9 +51,17 @@ export default {
         'c1650': '1650px',
         'c1000': '1000px',
         'c700': '700px',
+        'c2700': '2700px',
+        'c542': '542px',
+        'c900': '900px',
+        'c134': '134px',
       },
       spacing: {
         '41': '172px',
+        '22': '88px',
+      },
+      fontFamily: {
+        'nunito': ['Nunito', 'sans-serif'],
       },
 
     },

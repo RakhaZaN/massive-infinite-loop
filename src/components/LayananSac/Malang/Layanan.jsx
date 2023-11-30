@@ -1,8 +1,8 @@
-function LayananKami() {
+function Layanan() {
   return (
     <div>
-      <section className="h-c850">
-        <h1 className="text-customBlue3 text-center text-4xl font-bold">Layanan Kami</h1>
+        <section className="h-c850">
+        <h1 className="text-black text-center text-4xl font-bold mt-7 font-nunito">Layanan Kami</h1>
         <div className="flex justify-center mt-16 ml-22">
           <div className="w-1/3">
             {/* Card 1 */}
@@ -57,7 +57,7 @@ function LayananKami() {
         </div>
       </section>
     </div>
-  );
+  )
 }
 
-export default LayananKami;
+export default Layanan;
