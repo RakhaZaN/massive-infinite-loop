@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  table {
+    @apply w-full;
+  }
+
+  table th,
+  table td {
+    @apply px-3 py-2 text-sm text-center;
+  }
+}
