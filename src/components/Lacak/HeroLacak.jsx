@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function HeroLacak() {
   const sectionStyle = {
-    backgroundImage: "url('/img/bg-hero.jpg')",
+    backgroundImage: "url('/img/bg-hero.png')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '647px',
@@ -25,7 +25,7 @@ function HeroLacak() {
 
   return (
     <div>
-      <section style={sectionStyle} className="flex justify-center items-center bg-blend-soft-light">
+      <section style={sectionStyle} className="flex justify-center items-center">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-2 font-nunito">Lacak</h1>
           <h1 className="text-3xl mt-4 font-nunito">BERANDA / HALAMAN / <span className="text-customBlue5">LACAK</span></h1>

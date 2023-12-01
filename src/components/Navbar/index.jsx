@@ -6,7 +6,12 @@ function Navbar() {
     <StyledNavbar>
       <nav className="navbar">
         <div>
-          <img className="ml-12 cursor-pointer" src={`/img/LOGO.png`} alt="Card image" />
+          <img
+            className="ml-12 cursor-pointer"
+            src={`/img/LOGO.png`}
+            alt="Card image"
+            style={{ width: '94px', height: '39px' }}
+          />
         </div>
         <div>
           <ul className="font-semibold">
