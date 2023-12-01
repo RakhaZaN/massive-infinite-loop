@@ -1,6 +1,6 @@
 function HeroBatam() {
   const sectionStyle = {
-    backgroundImage: "url('/img/bg-hero-sm.jpg')",
+    backgroundImage: "url('/img/bg-hero-sm.png')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '405px',
@@ -65,7 +65,7 @@ function HeroBatam() {
 
   return (
     <div className="h-c542 relative">
-      <section style={sectionStyle} className="bg-hero flex justify-center items-center bg-blend-soft-light">
+      <section style={sectionStyle} className="bg-hero flex justify-center items-center">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-2 font-nunito">Layanan & Harga Menu</h1>
           <h1 className="text-3xl mt-4 font-nunito">BERANDA / HALAMAN / <span className="text-customBlue5">LAYANAN & HARGA MENU</span></h1>
@@ -78,7 +78,7 @@ function HeroBatam() {
       <div style={boxStyle}>
         <div style={leftBoxStyle}>
           {/* Isi dengan gambar/logo Anda */}
-          <img src="/img/HowhealLayananSac.jpg" alt="Your Logo" />
+          <img className="pb-6" src="/img/HowhealLayananSac.png" alt="Your Logo" />
         </div>
         <div style={rightBoxStyle}>
           {/* Isi dengan teks Anda */}

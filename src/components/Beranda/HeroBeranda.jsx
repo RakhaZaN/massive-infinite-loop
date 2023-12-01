@@ -1,6 +1,6 @@
 function HeroBeranda() {
   const sectionStyle = {
-    backgroundImage: "url('/img/bg-hero.jpg')",
+    backgroundImage: "url('/img/bg-hero.png')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '647px',
@@ -32,20 +32,27 @@ function HeroBeranda() {
     marginRight: '5px', // Sesuaikan jarak antara gambar dan teks jika diperlukan
   };
 
+
   return (
     <div>
-      <section style={sectionStyle} className="relative bg-blend-soft-light">
+      <section style={sectionStyle} className="relative">
         <div className="absolute top-60 ml-20">
           <h1 className="text-5xl font-semibold mb-2 font-nunito">Howheal Shoes and Care</h1>
           <h1 className="text-5xl font-semibold text-customBlue5 font-nunito">Revive your shoes, revive your style</h1>
         </div>
+        <img
+          src="/img/imgHeroBeranda.png" // Ganti dengan sumber dan nama file gambar Anda
+          alt="Your Image"
+          style={{ width: '415px', height: '581px', position: 'absolute', top: '20px', right: '20px' }}
+        />
         <button style={buttonStyle} className="font-semibold">
           <img src="/img/whatsapp-48.png" alt="Your Image" style={imgStyle} /> {/* Ganti dengan sumber dan nama file gambar Anda */}
           WhatsApp Care
         </button>
       </section>
     </div>
-  );
+  );    
+
 }
 
 export default HeroBeranda;
