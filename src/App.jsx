@@ -38,7 +38,6 @@ function App() {
             <Route index element={<Lacak />} />
             <Route path="hasil-lacak" element={< HasilLacak/>} />
           </Route>
-          
         </Route>
 
         <Route path="admin" element={<AdminLayout />}>
@@ -51,8 +50,6 @@ function App() {
         </Route>
         <Route path="admin/login" element={<AdminLogin />} />
       </Routes>
-
-
     </>
   );
 }
