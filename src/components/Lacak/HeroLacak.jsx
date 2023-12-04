@@ -42,7 +42,7 @@ function HeroLacak() {
             />
             <Link
               to={{
-                pathname: idPelanggan ? '/hasil-lacak' : '/hero-lacak', // Ganti '/hero-lacak' dengan rute halaman HeroLacak
+                pathname: idPelanggan ? 'hasil-lacak' : 'lacak', 
                 state: { id: idPelanggan }, // Kirim hanya ID pelanggan ke halaman hasil-lacak
               }}
               onClick={handleClick}

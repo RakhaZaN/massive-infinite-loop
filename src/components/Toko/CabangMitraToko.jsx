@@ -16,7 +16,7 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-              <Link to="/sac-malang" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+              <Link to="sac-malang" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
               </Link>
             </div>
@@ -32,7 +32,7 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <Link to="/sac-banyuwangi" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+                <Link to="sac-banyuwangi" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
                 </Link>
             </div>
@@ -49,7 +49,7 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <Link to="/sac-jakut" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+                <Link to="sac-jakut" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
                 </Link>
             </div>
@@ -65,7 +65,7 @@ function CabangMitraToko() {
                 </p>
             </div>
             <div className="px-6 py-4 flex justify-end">
-                <Link to="/sac-batam" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
+                <Link to="sac-batam" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold py-2 px-4 rounded-full">
                 Read More
                 </Link>
             </div>

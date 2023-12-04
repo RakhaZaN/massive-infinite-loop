@@ -24,25 +24,20 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="tentang" element={<Tentang />} />
-          <Route path="toko" element={<Toko />} />
           <Route path="galeri" element={<Galeri />} />
-          <Route path="lacak" element={<Lacak />} />
 
-          {/* <Route path="toko" element={<Toko />}>
+          <Route path="toko">
+            <Route index element={<Toko />} />
             <Route path="sac-malang" element={<Malang />} />
             <Route path="sac-banyuwangi" element={<Banyuwangi />} />
             <Route path="sac-jakut" element={<Jakut />} />
             <Route path="sac-batam" element={<Batam />} />
-          </Route> */}
+          </Route>
 
-          {/* layanan sac */}
-          <Route path="sac-malang" element={< Malang/>} />
-          <Route path="sac-banyuwangi" element={< Banyuwangi/>} />
-          <Route path="sac-jakut" element={< Jakut/>} />
-          <Route path="sac-batam" element={< Batam />} />
-
-          {/* hasil lacak */}
-          <Route path="hasil-lacak" element={< HasilLacak/>} />
+          <Route path="lacak">
+            <Route index element={<Lacak />} />
+            <Route path="hasil-lacak" element={< HasilLacak/>} />
+          </Route>
         </Route>
 
         <Route path="admin" element={<AdminLayout />}>

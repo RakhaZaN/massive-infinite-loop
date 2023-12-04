@@ -37,7 +37,7 @@ function TentangKami() {
                         </p>
                     </div>
                     <div className="px-6 flex justify-end">
-                        <Link to="sac-malang" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
+                        <Link to="/toko/sac-malang" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
                         Read More
                         </Link>
                     </div>
@@ -56,7 +56,7 @@ function TentangKami() {
                         </p>
                     </div>
                     <div className="px-6 flex justify-end">
-                        <Link to="/sac-banyuwangi" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
+                        <Link to="/toko/sac-banyuwangi" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
                         Read More
                         </Link>
                     </div>
@@ -78,7 +78,7 @@ function TentangKami() {
                         </p>
                     </div>
                     <div className="px-6 flex justify-end">
-                        <Link to="/sac-jakut" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
+                        <Link to="/toko/sac-jakut" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
                         Read More
                         </Link>
                     </div>
@@ -97,7 +97,7 @@ function TentangKami() {
                         </p>
                     </div>
                     <div className="px-6 flex justify-end">
-                        <Link to="sac-batam" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
+                        <Link to="/toko/sac-batam" className="bg-white hover:bg-blue-100 text-customBlue7 font-semibold mt-3 px-4 text-sm rounded-full">
                         Read More
                         </Link>
                     </div>
