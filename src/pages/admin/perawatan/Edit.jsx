@@ -54,7 +54,7 @@ const EditPerawatan = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Perubahan berhasil disimpan.");
-    navigate("/admin/data-pelanggan");
+    navigate("/admin/data-perawatan");
   };
 
   return (

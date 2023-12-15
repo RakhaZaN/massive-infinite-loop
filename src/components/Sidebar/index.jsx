@@ -25,8 +25,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     },
     {
       icon: <CircleStackIcon className="w-6 h-6" />,
-      text: "Data Pelanggan",
-      link: "/admin/data-pelanggan",
+      text: "Data Perawatan",
+      link: "/admin/data-perawatan",
       addClass: null,
       end: false,
     },

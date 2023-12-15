@@ -7,7 +7,7 @@ const AdminLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    return navigate("/admin", { replace: true });
+    return navigate("/admin/input-data", { replace: true });
   };
 
   return (
