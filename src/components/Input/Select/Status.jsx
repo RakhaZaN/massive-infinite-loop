@@ -5,7 +5,7 @@ import { status } from "../../../shared/data";
 
 const ListStatus = (props) => {
   //   const [selected, setSelected] = useState(status[0]);
-  const { selected, setSelected } = props;
+  const { selected, setSelected, error } = props;
 
   return (
     <div className="group mb-4">
@@ -31,7 +31,11 @@ const ListStatus = (props) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm z-50">
+            <Listbox.Options
+              className={`absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm z-50 ${
+                error && "border-red-500"
+              }`}
+            >
               {status.map((stat, idx) => (
                 <Listbox.Option
                   key={idx}
@@ -68,6 +72,7 @@ const ListStatus = (props) => {
           </Transition>
         </div>
       </Listbox>
+      {error && <p className="text-xs text-red-500">{error}</p>}
     </div>
   );
 };

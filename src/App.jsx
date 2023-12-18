@@ -45,7 +45,7 @@ function App() {
           <Route path="input-data" element={<InputPerawatan />} />
           <Route path="data-perawatan">
             <Route index element={<Pelanggan />} />
-            <Route path=":id" element={<EditPerawatan />} />
+            <Route path=":kode" element={<EditPerawatan />} />
           </Route>
         </Route>
         <Route path="admin/login" element={<AdminLogin />} />

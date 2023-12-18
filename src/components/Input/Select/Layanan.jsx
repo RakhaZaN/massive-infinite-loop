@@ -5,7 +5,7 @@ import { layanan } from "../../../shared/data";
 
 const ListLayanan = (props) => {
   //   const [selected, setSelected] = useState(layanan[0]);
-  const { selected, setSelected } = props;
+  const { selected, setSelected, error } = props;
 
   return (
     <div className="group mb-4">
@@ -16,7 +16,11 @@ const ListLayanan = (props) => {
           Jenis Layanan
         </Listbox.Label>
         <div className="relative">
-          <Listbox.Button className="relative w-full cursor-default bg-white py-2 pl-3 pr-10 text-left rounded-md border border-gray-300 focus:border-customBlue3 focus:ring-customBlue1 focus:ring-2 focus:ring-offset-1 focus:outline-none sm:text-sm">
+          <Listbox.Button
+            className={`relative w-full cursor-default bg-white py-2 pl-3 pr-10 text-left rounded-md border border-gray-300 focus:border-customBlue3 focus:ring-customBlue1 focus:ring-2 focus:ring-offset-1 focus:outline-none sm:text-sm ${
+              error && "border-red-500"
+            }`}
+          >
             <span className="block truncate">{selected?.nama}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
@@ -68,6 +72,7 @@ const ListLayanan = (props) => {
           </Transition>
         </div>
       </Listbox>
+      {error && <p className="text-xs text-red-500">{error}</p>}
     </div>
   );
 };
