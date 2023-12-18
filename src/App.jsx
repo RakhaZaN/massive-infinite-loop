@@ -36,7 +36,7 @@ function App() {
 
           <Route path="lacak">
             <Route index element={<Lacak />} />
-            <Route path="hasil-lacak" element={<HasilLacak />} />
+            <Route path="hasil-lacak/:idPelanggan" element={<HasilLacak />} />
           </Route>
         </Route>
 

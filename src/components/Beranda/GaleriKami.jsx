@@ -1,7 +1,7 @@
 function GaleriKami() {
   // Dummy image URLs
   const images = [
-    "/img/Galerikami1.jpeg",
+    "/img/GaleriKami1.jpeg",
     "/img/GaleriKami2.jpeg",
     "/img/GaleriKami3.jpeg",
     "/img/GaleriKami4.jpeg",

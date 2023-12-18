@@ -7,9 +7,9 @@ function BeforeAfter() {
     '/img/BeforeAfter4.jpeg',
     '/img/BeforeAfter5.jpeg',
     '/img/BeforeAfter6.jpeg',
-    '/img/imgHeroBeranda.png',
-    '/img/imgHeroBeranda.png',
-    '/img/imgHeroBeranda.png',
+    '/img/BeforeAfter7.png',
+    '/img/BeforeAfter8.png',
+    '/img/BeforeAfter9.png',
   ];
 
   return (
