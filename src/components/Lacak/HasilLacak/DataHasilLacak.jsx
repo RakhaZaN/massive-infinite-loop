@@ -1,34 +1,38 @@
+import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const DataHasilLacak = () => {
-  const location = useLocation();
-  const [trackingData, setTrackingData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [idPelanggan, setIdPelanggan] = useState('');
+  const { idPelanggan } = useParams();
+  const [trackingData, setTrackingData] = useState(null);
 
   useEffect(() => {
-    if (location.state && location.state.id) {
-      setIdPelanggan(location.state.id);
-      // Lakukan sesuatu untuk mengambil data dari sumber data yang tersedia (misal: API)
-      // Simpan data yang sesuai dengan ID pelanggan ke state trackingData
-      const dataFromServer = []; // Data yang didapat dari sumber data (misal: API)
-      setTrackingData(dataFromServer);
+    const fetchData = async () => {
+      
+      try {
+        const response = await axios.get(`http://localhost:5000/api/perawatan/${idPelanggan}`);
+        setTrackingData(response.data.data.perawatan);
+        console.log(response.data.data.perawatan);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+      
+    };
+
+    if (idPelanggan) {
+      fetchData();
     }
-  }, [location.state]);
+  }, [idPelanggan]);
 
-  useEffect(() => {
-    // Filter data yang sesuai dengan ID pelanggan
-    const filtered = trackingData.filter((data) => data.id === idPelanggan);
-    setFilteredData(filtered);
-  }, [idPelanggan, trackingData]);
+
+
 
   return (
     <div className="h-c700 mt-16 mx-20">
       <table className="w-full h-1/2">
         <thead>
           <tr className="bg-customBlue3 text-white">
-            <th className="px-4 py-4">ID</th>
+            <th className="px-4 py-4">Kode</th>
             <th className="px-4 py-4">Nama</th>
             <th className="px-4 py-4">Tipe Sepatu</th>
             <th className="px-4 py-4">Jenis Layanan</th>
@@ -36,15 +40,15 @@ const DataHasilLacak = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map((data) => (
-            <tr className="bg-white" key={data.id}>
-              <td className="border px-4 py-4">{data.id}</td>
-              <td className="border px-4 py-4">{data.nama}</td>
-              <td className="border px-4 py-4">{data.tipeSepatu}</td>
-              <td className="border px-4 py-4">{data.jenisLayanan}</td>
-              <td className="border px-4 py-4">{data.status}</td>
+          {trackingData && (
+              <tr className="bg-white">
+              <td className="border px-4 py-4">{trackingData.kode}</td>
+              <td className="border px-4 py-4">{trackingData.fullname}</td>
+              <td className="border px-4 py-4">{trackingData.tipe_sepatu}</td>
+              <td className="border px-4 py-4">{trackingData.jenis_layanan}</td>
+              <td className="border px-4 py-4">{trackingData.status}</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

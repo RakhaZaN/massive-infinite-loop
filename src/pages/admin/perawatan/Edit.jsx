@@ -1,36 +1,119 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Input from "../../../components/Input";
 import ListLayanan from "../../../components/Input/Select/Layanan";
 import ListStatus from "../../../components/Input/Select/Status";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router-dom/dist";
+import axios from "axios";
 
 const EditPerawatan = () => {
+  const { kode } = useParams();
   const navigate = useNavigate();
-  const [selectedStatus, setSelectedStatus] = React.useState({
-    label: "Belum Diproses",
-  });
-
   const [selectedLayanan, setSelectedLayanan] = React.useState({
     id: 1,
     nama: "Fast Clening",
     harga: "",
   });
-
-  const [inputs, setInputs] = React.useState({
-    idPelanggan: "SAC0001",
-    namaPelanggan: "Yuna Akbar",
-    noPelanggan: "0297349324",
-    tipeSepatu: "Canvas",
-    idLayanan: "1",
-    harga: "20000",
-    status: "Belum Diproses",
+  const [selectedStatus, setSelectedStatus] = React.useState({
+    label: "Belum Diproses",
   });
+  const [inputs, setInputs] = React.useState({
+    id: 0,
+    idPelanggan: {
+      value: "",
+      error: false,
+    },
+    namaPelanggan: {
+      value: "",
+      error: false,
+    },
+    noPelanggan: {
+      value: "",
+      error: false,
+    },
+    tipeSepatu: {
+      value: "",
+      error: false,
+    },
+    idLayanan: {
+      value: "",
+      error: false,
+    },
+    harga: {
+      value: 0,
+      error: false,
+    },
+    status: {
+      value: "",
+      error: false,
+    },
+  });
+
+  useEffect(() => {
+    const getDetail = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/api/perawatan/${kode}`,
+          { withCredentials: true }
+        );
+        // console.log(response.data.data.perawatan);
+        const perawatan = response.data.data.perawatan;
+        setInputs((prev) => ({
+          ...prev,
+          id: perawatan.id,
+          idPelanggan: {
+            ...prev.idPelanggan,
+            value: perawatan.kode,
+          },
+          namaPelanggan: {
+            ...prev.namaPelanggan,
+            value: perawatan.fullname,
+          },
+          noPelanggan: {
+            ...prev.noPelanggan,
+            value: perawatan.phone,
+          },
+          tipeSepatu: {
+            ...prev.tipeSepatu,
+            value: perawatan.tipe_sepatu,
+          },
+          idLayanan: {
+            ...prev.idLayanan,
+            value: perawatan.jenis_layanan,
+          },
+          harga: {
+            ...prev.harga,
+            value: perawatan.harga,
+          },
+          status: {
+            ...prev.status,
+            value: perawatan.status,
+          },
+        }));
+        setSelectedLayanan((prev) => ({
+          ...prev,
+          nama: perawatan.jenis_layanan,
+          harga: perawatan.harga,
+        }));
+        setSelectedStatus((prev) => ({
+          ...prev,
+          label: perawatan.status,
+        }));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getDetail();
+  }, [kode]);
 
   const handleStatusChange = (selected) => {
     setSelectedStatus(selected);
     setInputs((prev) => ({
       ...prev,
-      status: selected?.label,
+      status: {
+        value: selected?.label,
+        error: false,
+      },
     }));
   };
 
@@ -38,8 +121,14 @@ const EditPerawatan = () => {
     setSelectedLayanan(selected);
     setInputs((prev) => ({
       ...prev,
-      idLayanan: selected?.id,
-      harga: selected?.harga,
+      idLayanan: {
+        value: selected?.nama,
+        error: false,
+      },
+      harga: {
+        value: selected?.harga,
+        error: false,
+      },
     }));
   };
 
@@ -47,14 +136,54 @@ const EditPerawatan = () => {
     const { name, value } = e.target;
     setInputs((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: {
+        value: value,
+        error: false,
+      },
     }));
   };
 
-  const handleSubmit = (e) => {
+  const validation = (tipe_sepatu, jenis_layanan, status) => {
+    setInputs((prev) => ({
+      ...prev,
+      tipeSepatu: {
+        ...prev.tipeSepatu,
+        error: tipe_sepatu == "" ? "Tipe sepatu tidak boleh kosong" : false,
+      },
+      idLayanan: {
+        ...prev.idLayanan,
+        error:
+          jenis_layanan == "" ? "Pilih jenis layanan terlebih dahulu" : false,
+      },
+      status: {
+        ...prev.status,
+        error: status == "" ? "Pilih status terlebih dahulu" : false,
+      },
+    }));
+    return tipe_sepatu != "" && jenis_layanan != "" && status != "";
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Perubahan berhasil disimpan.");
-    navigate("/admin/data-pelanggan");
+
+    const id = inputs.id;
+    const tipe_sepatu = inputs.tipeSepatu.value;
+    const jenis_layanan = inputs.idLayanan.value;
+    const harga = inputs.harga.value;
+    const status = inputs.status.value;
+
+    if (validation(tipe_sepatu, jenis_layanan, status)) {
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/perawatan/${id}`,
+          { tipe_sepatu, jenis_layanan, harga, status }
+        );
+        alert(response.data.message);
+        navigate("/admin/data-perawatan");
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
   };
 
   return (
@@ -88,8 +217,8 @@ const EditPerawatan = () => {
                 type="text"
                 id="idPelanggan"
                 name="idPelanggan"
-                label="ID Pelanggan"
-                value={inputs.idPelanggan}
+                label="Kode Perawatan"
+                value={inputs.idPelanggan.value}
                 readOnly
               />
               <Input
@@ -97,7 +226,7 @@ const EditPerawatan = () => {
                 id="namaPelanggan"
                 name="namaPelanggan"
                 label="Nama"
-                value={inputs.namaPelanggan}
+                value={inputs.namaPelanggan.value}
                 disabled
               />
               <Input
@@ -105,7 +234,7 @@ const EditPerawatan = () => {
                 id="noPelanggan"
                 name="noPelanggan"
                 label="Nomor Telp"
-                value={inputs.noPelanggan}
+                value={inputs.noPelanggan.value}
                 disabled
               />
             </div>
@@ -116,18 +245,20 @@ const EditPerawatan = () => {
                 id="tipeSepatu"
                 name="tipeSepatu"
                 label="Tipe Sepatu"
-                value={inputs.tipeSepatu}
+                value={inputs.tipeSepatu.value}
                 onChange={handleInputChange}
+                error={inputs.tipeSepatu.error}
               />
               <ListLayanan
                 selected={selectedLayanan}
                 setSelected={handleLayananChange}
+                error={inputs.idLayanan.error}
               />
               <Input
                 type="hidden"
                 id="idLayanan"
                 name="idLayanan"
-                value={inputs.idLayanan}
+                value={selectedLayanan.nama}
                 readOnly
               />
               <Input
@@ -135,12 +266,13 @@ const EditPerawatan = () => {
                 id="harga"
                 name="harga"
                 label="Harga"
-                value={inputs.harga}
+                value={inputs.harga.value.toString()}
                 readOnly
               />
               <ListStatus
                 selected={selectedStatus}
                 setSelected={handleStatusChange}
+                error={inputs.status.error}
               />
             </div>
           </div>

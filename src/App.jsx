@@ -36,16 +36,16 @@ function App() {
 
           <Route path="lacak">
             <Route index element={<Lacak />} />
-            <Route path="hasil-lacak" element={< HasilLacak/>} />
+            <Route path="hasil-lacak/:idPelanggan" element={<HasilLacak />} />
           </Route>
         </Route>
 
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<Admin />} />
           <Route path="input-data" element={<InputPerawatan />} />
-          <Route path="data-pelanggan">
+          <Route path="data-perawatan">
             <Route index element={<Pelanggan />} />
-            <Route path=":id" element={<EditPerawatan />} />
+            <Route path=":kode" element={<EditPerawatan />} />
           </Route>
         </Route>
         <Route path="admin/login" element={<AdminLogin />} />

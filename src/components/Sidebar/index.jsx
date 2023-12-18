@@ -5,10 +5,30 @@ import {
   CircleStackIcon,
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/outline";
+import axios from "axios";
+import { useNavigate } from "react-router-dom/dist";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const navigate = useNavigate();
   const [isSmall, setIsSmall] = useState(window.innerWidth < 768);
   window.addEventListener("resize", () => setIsSmall(window.innerWidth < 768));
+
+  const logout = async () => {
+    if (confirm("Apakah Anda ingin keluar?")) {
+      try {
+        const response = await axios.delete(
+          "http://localhost:5000/api/users/auth/logout",
+          {
+            withCredentials: true,
+          }
+        );
+        alert(response.data.message);
+        navigate("/admin/login", { replace: true });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   const navgiations = [
     // {
@@ -25,18 +45,19 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     },
     {
       icon: <CircleStackIcon className="w-6 h-6" />,
-      text: "Data Pelanggan",
-      link: "/admin/data-pelanggan",
+      text: "Data Perawatan",
+      link: "/admin/data-perawatan",
       addClass: null,
       end: false,
     },
-    {
-      icon: <ArrowLeftOnRectangleIcon className="w-6 h-6" />,
-      text: "Logout",
-      link: "/admin/login",
-      addClass: null,
-      end: false,
-    },
+    // {
+    //   icon: <ArrowLeftOnRectangleIcon className="w-6 h-6" />,
+    //   text: "Logout",
+    //   link: "/admin/login",
+    //   addClass: null,
+    //   end: false,
+    //   onClick: logout,
+    // },
   ];
 
   return (
@@ -91,6 +112,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             {isOpen && <span>{nav.text}</span>}
           </NavLink>
         ))}
+        <button
+          className="p-2 px-3 rounded-md border-0 hover:bg-red-500 flex items-center gap-2"
+          onClick={logout}
+        >
+          <ArrowLeftOnRectangleIcon className="w-6 h-6" />{" "}
+          {isOpen && <span>Logout</span>}
+        </button>
       </div>
     </div>
     // <div className="bg-customBlue3 py-4 px-6 h-screen text-white sticky top-0">
