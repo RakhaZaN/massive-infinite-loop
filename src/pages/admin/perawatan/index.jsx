@@ -3,13 +3,16 @@ import Input from "../../../components/Input";
 import CBPelanggan from "../../../components/Input/ComboBox/Pelanggan";
 import ListLayanan from "../../../components/Input/Select/Layanan";
 import { useNavigate } from "react-router";
+import NewPelanggan from "../../../components/Modal/NewPelanggan";
+import axios from "axios";
+import { useOutletContext } from "react-router-dom/dist";
 
 const InputPerawatan = () => {
   const navigate = useNavigate();
   const [selectedPelanggan, setSelectedPelanggan] = React.useState({
-    id: "0",
-    nama: "----- Pilih Pelanggan -----",
-    noTelp: "",
+    id: 0,
+    fullname: "----- Pilih Pelanggan -----",
+    phone: "",
   });
   const [selectedLayanan, setSelectedLayanan] = React.useState({
     id: 0,
@@ -18,22 +21,51 @@ const InputPerawatan = () => {
   });
 
   const [inputs, setInputs] = React.useState({
-    idPelanggan: "",
-    namaPelanggan: "",
-    noPelanggan: "",
-    tipeSepatu: "",
-    idLayanan: "",
-    harga: "",
-    status: "Belum Diproses",
+    idPelanggan: {
+      value: "",
+      error: false,
+    },
+    namaPelanggan: {
+      value: "",
+      error: false,
+    },
+    noPelanggan: {
+      value: "",
+      error: false,
+    },
+    tipeSepatu: {
+      value: "",
+      error: false,
+    },
+    idLayanan: {
+      value: "",
+      error: false,
+    },
+    harga: {
+      value: 0,
+      error: false,
+    },
   });
 
   const handlePelangganChange = (selected) => {
     setSelectedPelanggan(selected);
     setInputs((prev) => ({
       ...prev,
-      idPelanggan: selected?.id || "",
-      namaPelanggan: selected?.nama || "",
-      noPelanggan: selected?.noTelp || "",
+      idPelanggan: {
+        ...prev.idPelanggan,
+        value: selected?.id,
+        error: false,
+      },
+      namaPelanggan: {
+        ...prev.namaPelanggan,
+        value: selected?.fullname,
+        error: false,
+      },
+      noPelanggan: {
+        ...prev.noPelanggan,
+        value: selected?.phone,
+        error: false,
+      },
     }));
   };
 
@@ -41,8 +73,16 @@ const InputPerawatan = () => {
     setSelectedLayanan(selected);
     setInputs((prev) => ({
       ...prev,
-      idLayanan: selected?.id,
-      harga: selected?.harga,
+      idLayanan: {
+        ...prev.idLayanan,
+        value: selected?.nama,
+        error: false,
+      },
+      harga: {
+        ...prev.harga,
+        value: selected?.harga,
+        error: false,
+      },
     }));
   };
 
@@ -50,19 +90,67 @@ const InputPerawatan = () => {
     const { name, value } = e.target;
     setInputs((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: {
+        ...prev[name],
+        value: value,
+        error: false,
+      },
     }));
   };
 
-  const handleSubmit = (e) => {
+  const validation = () => {
+    const pelangganId = inputs.idPelanggan.value;
+    const tipeSepatu = inputs.tipeSepatu.value;
+    const layananId = inputs.idLayanan.value;
+
+    setInputs((prev) => ({
+      ...prev,
+      idPelanggan: {
+        ...prev.idPelanggan,
+        error: pelangganId == "" ? "Pilih pelanggan terlebih dahulu" : false,
+      },
+      tipeSepatu: {
+        ...prev.tipeSepatu,
+        error: tipeSepatu == "" ? "Tipe sepatu tidak boleh kosong" : false,
+      },
+      idLayanan: {
+        ...prev.idLayanan,
+        error: layananId == "" ? "Pilih layanan terlebih dahulu" : false,
+      },
+    }));
+
+    return pelangganId != "" && tipeSepatu != "" && layananId != "";
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Data berhasil disimpan.");
-    navigate("/admin/data-perawatan");
+
+    if (validation()) {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/perawatan",
+          {
+            pelanggan_id: inputs.idPelanggan.value,
+            tipe_sepatu: inputs.tipeSepatu.value,
+            jenis_layanan: inputs.idLayanan.value,
+            harga: inputs.harga.value,
+          },
+          {
+            withCredentials: true,
+          }
+        );
+
+        alert("Data berhasil disimpan.");
+        navigate("/admin/data-perawatan");
+      } catch (error) {
+        alert(error.response.data.message.message);
+        console.log(error.response.data.message.message);
+        return false;
+      }
+    }
   };
 
   const [showModal, setShowModal] = React.useState(false);
-
-  const toggleModal = (isShow) => setShowModal(isShow);
 
   return (
     <>
@@ -77,7 +165,7 @@ const InputPerawatan = () => {
                   <h5 className="font-medium text-xl mb-4">Data Pelanggan</h5>
                   <button
                     type="button"
-                    onClick={() => toggleModal(true)}
+                    onClick={() => setShowModal(true)}
                     className="text-customBlue3 text-sm underline"
                   >
                     Pelanggan Baru
@@ -86,12 +174,13 @@ const InputPerawatan = () => {
                 <CBPelanggan
                   selected={selectedPelanggan}
                   setSelected={handlePelangganChange}
+                  error={inputs.idPelanggan.error}
                 />
                 <Input
                   type="hidden"
                   id="idPelanggan"
                   name="idPelanggan"
-                  value={inputs.idPelanggan}
+                  value={inputs.idPelanggan.value}
                   readOnly
                 />
                 <Input
@@ -99,7 +188,7 @@ const InputPerawatan = () => {
                   id="namaPelanggan"
                   name="namaPelanggan"
                   label="Nama"
-                  value={inputs.namaPelanggan}
+                  value={inputs.namaPelanggan.value}
                   disabled
                 />
                 <Input
@@ -107,7 +196,7 @@ const InputPerawatan = () => {
                   id="noPelanggan"
                   name="noPelanggan"
                   label="Nomor Telp"
-                  value={inputs.noPelanggan}
+                  value={inputs.noPelanggan.value}
                   disabled
                 />
               </div>
@@ -118,18 +207,20 @@ const InputPerawatan = () => {
                   id="tipeSepatu"
                   name="tipeSepatu"
                   label="Tipe Sepatu"
-                  value={inputs.tipeSepatu}
+                  value={inputs.tipeSepatu.value}
                   onChange={handleInputChange}
+                  error={inputs.tipeSepatu.error}
                 />
                 <ListLayanan
                   selected={selectedLayanan}
                   setSelected={handleLayananChange}
+                  error={inputs.idLayanan.error}
                 />
                 <Input
                   type="hidden"
                   id="idLayanan"
                   name="idLayanan"
-                  value={inputs.idLayanan}
+                  value={inputs.idLayanan.value}
                   readOnly
                 />
                 <Input
@@ -137,7 +228,7 @@ const InputPerawatan = () => {
                   id="harga"
                   name="harga"
                   label="Harga"
-                  value={inputs.harga}
+                  value={inputs.harga.value.toString()}
                   readOnly
                 />
                 {/* <Input type="text" id="status" name="status" label="Status" /> */}
@@ -156,56 +247,7 @@ const InputPerawatan = () => {
       </div>
 
       {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[999]">
-          <div className="bg-white p-8 rounded-xl w-96">
-            {/* Add your form for adding customer data here */}
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">Tambah Data Pelanggan</h2>
-              <button
-                type="button"
-                onClick={() => toggleModal(false)}
-                className="hover:opacity-50"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-            <form>
-              <Input
-                type="text"
-                id="addNamaPelanggan"
-                name="addNamaPelanggan"
-                label="Nama"
-              />
-              <Input
-                type="text"
-                id="addNoTelpPelanggan"
-                name="addNoTelpPelanggan"
-                label="Nomor Telp"
-              />
-              <button
-                onClick={() => toggleModal(false)}
-                className="block py-2 px-4 rounded-lg font-medium text-white bg-customBlue3 hover:bg-customBlue4"
-              >
-                Simpan Data Pelanggan
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+      {showModal && <NewPelanggan toggleModal={setShowModal} />}
     </>
   );
 };
