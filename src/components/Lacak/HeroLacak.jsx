@@ -36,15 +36,14 @@ function HeroLacak() {
               value={idPelanggan}
               onChange={handleInputChange}
               className="border-gray-300 border rounded-l-lg px-60 py-7 focus:outline-none focus:ring focus:border-blue-300 flex-1 text-xl"
-              placeholder="Masukkan ID Pelanggan"
-              aria-label="Masukkan ID Pelanggan"
+              placeholder="Masukkan Kode Invoice"
+              aria-label="Masukkan Kode Invoice"
               aria-describedby="button-addon2"
             />
             <Link
-              to={{
-                pathname: idPelanggan ? 'hasil-lacak' : 'lacak', 
-                state: { id: idPelanggan }, // Kirim hanya ID pelanggan ke halaman hasil-lacak
-              }}
+              to={
+                `/lacak/hasil-lacak/${idPelanggan}`
+              }
               onClick={handleClick}
             >
               <button className={`bg-white border border-l-0 border-gray-300 rounded-r-lg px-7 py-7 hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 font-semibold text-xl ${!idPelanggan && 'opacity-50'}`} type="button" id="button-addon2" disabled={!idPelanggan}>
@@ -59,3 +58,4 @@ function HeroLacak() {
 }
 
 export default HeroLacak;
+
