@@ -8,15 +8,14 @@ import TigaLangkah from "../components/Beranda/TigaLangkah";
 function Home() {
   return (
     <div>
-      
-      <HeroBeranda/>  
-      <TigaLangkah/>      
-      <TentangKami/>
-      <LayananKami/>
-      <Pilihan/>
-      <GaleriKami/>
+      <HeroBeranda />
+      <TigaLangkah />
+      <TentangKami />
+      <LayananKami />
+      <Pilihan />
+      <GaleriKami />
     </div>
-  )
+  );
 }
 
 export default Home;

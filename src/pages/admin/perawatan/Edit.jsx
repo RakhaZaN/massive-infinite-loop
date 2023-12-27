@@ -4,6 +4,7 @@ import ListLayanan from "../../../components/Input/Select/Layanan";
 import ListStatus from "../../../components/Input/Select/Status";
 import { useNavigate, useParams } from "react-router-dom/dist";
 import axios from "axios";
+import endpoints from "../../../utils/api/enpoints.js";
 
 const EditPerawatan = () => {
   const { kode } = useParams();
@@ -51,10 +52,9 @@ const EditPerawatan = () => {
   useEffect(() => {
     const getDetail = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/perawatan/${kode}`,
-          { withCredentials: true }
-        );
+        const response = await axios.get(endpoints.PERAWATAN.DETAIL(kode), {
+          withCredentials: true,
+        });
         // console.log(response.data.data.perawatan);
         const perawatan = response.data.data.perawatan;
         setInputs((prev) => ({
@@ -174,10 +174,12 @@ const EditPerawatan = () => {
 
     if (validation(tipe_sepatu, jenis_layanan, status)) {
       try {
-        const response = await axios.put(
-          `http://localhost:5000/api/perawatan/${id}`,
-          { tipe_sepatu, jenis_layanan, harga, status }
-        );
+        const response = await axios.put(endpoints.PERAWATAN.DETAIL(id), {
+          tipe_sepatu,
+          jenis_layanan,
+          harga,
+          status,
+        });
         alert(response.data.message);
         navigate("/admin/data-perawatan");
       } catch (error) {

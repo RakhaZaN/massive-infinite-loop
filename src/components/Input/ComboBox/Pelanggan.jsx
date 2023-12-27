@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
+import endpoints from "../../../utils/api/enpoints.js";
 
 const CBPelanggan = ({ selected, setSelected, error }) => {
   const [query, setQuery] = useState("");
@@ -12,7 +13,7 @@ const CBPelanggan = ({ selected, setSelected, error }) => {
   }, []);
 
   const getPelanggan = async () => {
-    const response = await axios.get("http://localhost:5000/api/pelanggan");
+    const response = await axios.get(endpoints.PELANGGAN);
     setPelanggan(response.data.data.pelanggan);
   };
 
