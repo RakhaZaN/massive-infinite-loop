@@ -5,7 +5,8 @@ import ListLayanan from "../../../components/Input/Select/Layanan";
 import { useNavigate } from "react-router";
 import NewPelanggan from "../../../components/Modal/NewPelanggan";
 import axios from "axios";
-import { useOutletContext } from "react-router-dom/dist";
+// import { useOutletContext } from "react-router-dom/dist";
+import endpoints from "../../../utils/api/enpoints.js";
 
 const InputPerawatan = () => {
   const navigate = useNavigate();
@@ -128,7 +129,7 @@ const InputPerawatan = () => {
     if (validation()) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/perawatan",
+          endpoints.PERAWATAN.GET,
           {
             pelanggan_id: inputs.idPelanggan.value,
             tipe_sepatu: inputs.tipeSepatu.value,
@@ -140,7 +141,7 @@ const InputPerawatan = () => {
           }
         );
 
-        alert("Data berhasil disimpan.");
+        alert(response.data.message);
         navigate("/admin/data-perawatan");
       } catch (error) {
         alert(error.response.data.message.message);

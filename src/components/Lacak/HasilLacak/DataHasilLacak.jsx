@@ -1,6 +1,7 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import endpoints from "../../../utils/api/enpoints.js";
 
 const DataHasilLacak = () => {
   const { idPelanggan } = useParams();
@@ -8,24 +9,19 @@ const DataHasilLacak = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      
       try {
-        const response = await axios.get(`http://localhost:5000/api/perawatan/${idPelanggan}`);
+        // console.log(endpoints.LACAK(idPelanggan));
+        const response = await axios.get(endpoints.LACAK(idPelanggan));
         setTrackingData(response.data.data.perawatan);
-        console.log(response.data.data.perawatan);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
-      
     };
 
     if (idPelanggan) {
       fetchData();
     }
   }, [idPelanggan]);
-
-
-
 
   return (
     <div className="h-c700 mt-16 mx-20">
@@ -41,7 +37,7 @@ const DataHasilLacak = () => {
         </thead>
         <tbody>
           {trackingData && (
-              <tr className="bg-white">
+            <tr className="bg-white">
               <td className="border px-4 py-4">{trackingData.kode}</td>
               <td className="border px-4 py-4">{trackingData.fullname}</td>
               <td className="border px-4 py-4">{trackingData.tipe_sepatu}</td>
