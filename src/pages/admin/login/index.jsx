@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom/dist";
+import endpoints from "../../../utils/api/enpoints.js";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ const AdminLogin = () => {
     if (validation()) {
       try {
         await axios.post(
-          "http://localhost:5000/api/users/auth/login",
+          endpoints.LOGIN,
           {
             username: inputs.username.value,
             password: inputs.password.value,

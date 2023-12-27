@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useNavigate } from "react-router-dom/dist";
+import endpoints from "../../utils/api/enpoints.js";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const navigate = useNavigate();
@@ -16,12 +17,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   const logout = async () => {
     if (confirm("Apakah Anda ingin keluar?")) {
       try {
-        const response = await axios.delete(
-          "http://localhost:5000/api/users/auth/logout",
-          {
-            withCredentials: true,
-          }
-        );
+        const response = await axios.delete(endpoints.LOGOUT, {
+          withCredentials: true,
+        });
         alert(response.data.message);
         navigate("/admin/login", { replace: true });
       } catch (error) {

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import endpoints from "../../../utils/api/enpoints.js";
 
 const Pelanggan = () => {
   const [data, setData] = useState([]);
@@ -8,9 +9,7 @@ const Pelanggan = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/perawatan/"
-        );
+        const response = await axios.get(endpoints.PERAWATAN.GET);
         // console.log(response.data);
         setData(response.data.data.perawatan);
       } catch (error) {
